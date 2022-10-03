@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce4flhuyms2iv"]
+
+[ext_resource type="Script" path="res://src/Player/Player.cs" id="1_n6sgb"]
+[ext_resource type="PackedScene" uid="uid://6o81otuqiolx" path="res://src/Camera/CameraRig.tscn" id="2_dd878"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jn188"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2cf18"]
+margin = 0.1
+radius = 0.25
+height = 1.25
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_n6sgb")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.874078, 0)
+mesh = SubResource("BoxMesh_jn188")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("CapsuleShape3D_2cf18")
+
+[node name="CameraRig" parent="." instance=ExtResource("2_dd878")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.386, 0)
