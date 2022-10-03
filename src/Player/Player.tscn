@@ -14,7 +14,11 @@ height = 1.25
 script = ExtResource("1_n6sgb")
 
 [node name="MeshInstance3d" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.874078, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.31165, 0)
+mesh = SubResource("BoxMesh_jn188")
+
+[node name="MeshInstance3d2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.105992, 0, 0, 0, 0.855782, 0, 0, 0, 0.122072, 0, 0.755411, 0)
 mesh = SubResource("BoxMesh_jn188")
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]

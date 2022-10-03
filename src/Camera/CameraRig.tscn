@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://6o81otuqiolx"]
 
 [ext_resource type="Script" path="res://src/Camera/CameraRig.cs" id="1_4aw7c"]
-[ext_resource type="Script" path="res://src/Camera/InterpolatedCamera3D.cs" id="1_hl6cv"]
+[ext_resource type="Script" path="res://addons/interpolated_camera_3d/interpolated_camera_3d.gd" id="2_25ymq"]
 [ext_resource type="Script" path="res://src/Camera/SpringArm.cs" id="2_65du5"]
 [ext_resource type="Script" path="res://src/Camera/AimTarget.cs" id="4_nr3bi"]
 [ext_resource type="Script" path="res://src/Common/StateMachine/StateMachine.cs" id="5_41br5"]
@@ -15,10 +15,11 @@ script = ExtResource("1_4aw7c")
 
 [node name="InterpolatedCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.87462, 0.48481, 0, -0.48481, 0.87462, 0, 0.5, 0.5)
-script = ExtResource("1_hl6cv")
-_targetPath = NodePath("../SpringArm/CameraTarget")
+script = ExtResource("2_25ymq")
+target = NodePath("../SpringArm/CameraTarget")
 
 [node name="AimRay" type="RayCast3D" parent="InterpolatedCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, -20)
 
 [node name="SpringArm" type="SpringArm3D" parent="."]
@@ -28,10 +29,11 @@ shape = SubResource("CapsuleShape3D_8f25k")
 spring_length = 4.5
 margin = 0.5
 script = ExtResource("2_65du5")
-LengthRange = Vector2(3, 6)
+LengthRange = Vector2(1, 4)
 Zoom = 0.5
 
 [node name="CameraTarget" type="Marker3D" parent="SpringArm"]
+transform = Transform3D(54.8633, 0, 0, 0, 54.8633, 0, 0, 0, 54.8633, 0, 0, 0)
 
 [node name="AimTarget" type="Sprite3D" parent="."]
 pixel_size = 0.0001

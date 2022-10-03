@@ -11,7 +11,7 @@ public partial class CameraRig : Node3D
 
     public AimTarget? AimTarget;
 
-    public InterpolatedCamera3D? Camera;
+    public Camera3D? Camera;
 
     public SpringArm? SpringArm;
 
@@ -43,7 +43,7 @@ public partial class CameraRig : Node3D
         this.AimRay = this.GetNode<RayCast3D>("InterpolatedCamera/AimRay");
         if (this.AimRay is null) GD.PushError("AimRay reference not found!");
 
-        this.Camera = this.GetNode<InterpolatedCamera3D>("InterpolatedCamera");
+        this.Camera = this.GetNode<Camera3D>("InterpolatedCamera");
         if (this.Camera is null) GD.PushError("InterpolatedCamera reference not found!");
 
         this.SpringArm = this.GetNode<SpringArm>("SpringArm");

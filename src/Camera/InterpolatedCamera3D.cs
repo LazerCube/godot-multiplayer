@@ -1,11 +1,11 @@
-﻿namespace Acruxx.Camera;
+namespace Acruxx.Camera;
 
 using Godot;
 
 /// <summary>
 /// The interpolated camera3 d.
 /// </summary>
-public partial class InterpolatedCamera3D : Camera3D
+public partial class InterpolatedCamera3D2 : Camera3D
 {
     [Export(PropertyHint.Range, "0, 1, 0.001")]
     private float _translateSpeed = 0.95f;
@@ -34,7 +34,7 @@ public partial class InterpolatedCamera3D : Camera3D
         {
             return;
         }
-
+      
         var translateFactor = this._translateSpeed * delta * 10;
         var rotateFactor = this._rotateSpeed * delta * 10;
         var target_xform = this._target!.GlobalTransform;

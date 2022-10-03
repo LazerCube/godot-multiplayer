@@ -8,6 +8,16 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "Camera3D",
+"class": &"InterpolatedCamera3D",
+"language": &"GDScript",
+"path": "res://addons/interpolated_camera_3d/interpolated_camera_3d.gd"
+}]
+_global_script_class_icons={
+"InterpolatedCamera3D": "res://addons/interpolated_camera_3d/interpolated_camera_3d.svg"
+}
+
 [application]
 
 config/name="Acruxx"
@@ -18,6 +28,10 @@ config/icon="res://icon.svg"
 [dotnet]
 
 project/assembly_name="Acruxx"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/interpolated_camera_3d/plugin.cfg")
 
 [input]
 

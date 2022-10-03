@@ -9,7 +9,7 @@ namespace Acruxx.Camera;
 /// </summary>
 public partial class SpringArm : SpringArm3D
 {
-    private Vector2 _lengthRange = new(3.0f, 6.0f);
+    private Vector2 _lengthRange = new(1.0f, 4.0f);
     private float _zoom = 0.5f;
 
     public Vector3 PositionStart;
@@ -23,10 +23,13 @@ public partial class SpringArm : SpringArm3D
         get { return this._lengthRange; }
         set
         {
-            value.x = Mathf.Max(value.x, 0.0f);
-            value.y = Mathf.Max(value.y, 0.0f);
-            this._lengthRange.x = Mathf.Min(value.x, value.y);
-            this._lengthRange.y = Mathf.Min(value.x, value.y);
+            //value.x = Mathf.Max(value.x, 0.0f);
+            //value.y = Mathf.Max(value.y, 0.0f);
+            //this._lengthRange.x = Mathf.Min(value.x, value.y);
+            //this._lengthRange.y = Mathf.Min(value.x, value.y);
+
+            this._lengthRange.x = value.x;
+            this._lengthRange.y = value.y;
 
             // set zoom again
             this.Zoom = this._zoom;
