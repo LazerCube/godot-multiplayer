@@ -1,29 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce4flhuyms2iv"]
+[gd_scene load_steps=10 format=3 uid="uid://ce4flhuyms2iv"]
 
 [ext_resource type="Script" path="res://src/Player/Player.cs" id="1_n6sgb"]
 [ext_resource type="PackedScene" uid="uid://6o81otuqiolx" path="res://src/Camera/CameraRig.tscn" id="2_dd878"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_jn188"]
+[ext_resource type="PackedScene" uid="uid://7nd1si2penm6" path="res://src/Player/Mannequiny.tscn" id="2_vimva"]
+[ext_resource type="Script" path="res://src/Common/StateMachine/StateMachine.cs" id="3_bg1o6"]
+[ext_resource type="Script" path="res://src/Player/States/Move.cs" id="4_c6e1e"]
+[ext_resource type="Script" path="res://src/Player/States/Idle.cs" id="5_om8fx"]
+[ext_resource type="Script" path="res://src/Player/States/Air.cs" id="6_vgqve"]
+[ext_resource type="Script" path="res://src/Player/States/Run.cs" id="7_7pmdr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2cf18"]
 margin = 0.1
 radius = 0.25
-height = 1.25
+height = 1.75
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_n6sgb")
 
-[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.31165, 0)
-mesh = SubResource("BoxMesh_jn188")
-
-[node name="MeshInstance3d2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.105992, 0, 0, 0, 0.855782, 0, 0, 0, 0.122072, 0, 0.755411, 0)
-mesh = SubResource("BoxMesh_jn188")
+[node name="Mannequiny" parent="." instance=ExtResource("2_vimva")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
 shape = SubResource("CapsuleShape3D_2cf18")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_bg1o6")
+InitialState = NodePath("Move/Idle")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("4_c6e1e")
+
+[node name="Idle" type="Node" parent="StateMachine/Move"]
+script = ExtResource("5_om8fx")
+
+[node name="Air" type="Node" parent="StateMachine/Move"]
+script = ExtResource("6_vgqve")
+
+[node name="Run" type="Node" parent="StateMachine/Move"]
+script = ExtResource("7_7pmdr")
+_speedRun = 400.0
+_speedSprint = 900.0
 
 [node name="CameraRig" parent="." instance=ExtResource("2_dd878")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.386, 0)

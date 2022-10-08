@@ -49,7 +49,7 @@ public partial class CameraRig : Node3D
         this.SpringArm = this.GetNode<SpringArm>("SpringArm");
         if (this.SpringArm is null) GD.PushError("SpringArm reference not found!");
 
-        this.PositionStart = this.Transform.origin;
+        this.PositionStart = this.Position;
 
         // node transformations only in Global Space
         this.TopLevel = true;

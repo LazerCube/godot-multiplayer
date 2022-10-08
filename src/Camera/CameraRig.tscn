@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6o81otuqiolx"]
+[gd_scene load_steps=10 format=3 uid="uid://6o81otuqiolx"]
 
 [ext_resource type="Script" path="res://src/Camera/CameraRig.cs" id="1_4aw7c"]
 [ext_resource type="Script" path="res://addons/interpolated_camera_3d/interpolated_camera_3d.gd" id="2_25ymq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/Common/StateMachine/StateMachine.cs" id="5_41br5"]
 [ext_resource type="Script" path="res://src/Camera/States/Camera.cs" id="6_5b7tu"]
 [ext_resource type="Script" path="res://src/Camera/States/Default.cs" id="7_psbxa"]
+[ext_resource type="Script" path="res://src/Camera/States/Aim.cs" id="8_07xh5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8f25k"]
 
@@ -19,7 +20,6 @@ script = ExtResource("2_25ymq")
 target = NodePath("../SpringArm/CameraTarget")
 
 [node name="AimRay" type="RayCast3D" parent="InterpolatedCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, -20)
 
 [node name="SpringArm" type="SpringArm3D" parent="."]
@@ -45,6 +45,12 @@ InitialState = NodePath("Camera/Default")
 
 [node name="Camera" type="Node" parent="StateMachine"]
 script = ExtResource("6_5b7tu")
+FovDefault = 90.0
 
 [node name="Default" type="Node" parent="StateMachine/Camera"]
 script = ExtResource("7_psbxa")
+
+[node name="Aim" type="Node" parent="StateMachine/Camera"]
+script = ExtResource("8_07xh5")
+_fov = 70.0
+_offsetCamera = Vector3(0.75, -1, 0)

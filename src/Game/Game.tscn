@@ -1,13 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://r244y5vu26hq"]
+[gd_scene load_steps=9 format=3 uid="uid://r244y5vu26hq"]
 
 [ext_resource type="Script" path="res://src/Game/Game.cs" id="1_dfyus"]
 [ext_resource type="PackedScene" uid="uid://ce4flhuyms2iv" path="res://src/Player/Player.tscn" id="1_vumvf"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_5i32q"]
-size = Vector3(10, 0.25, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_h1aq6"]
-size = Vector3(9.99222, 0.248063, 1)
+[ext_resource type="PackedScene" uid="uid://xqwt1w4wbeh4" path="res://src/Game/Playground.tscn" id="3_geflk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rw880"]
 sky_top_color = Color(0.466667, 0.631373, 0.768627, 1)
@@ -25,29 +20,50 @@ tonemap_mode = 2
 tonemap_white = 2.0
 ssao_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_5i32q"]
+size = Vector3(75, 0.25, 75)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h1aq6"]
+size = Vector3(75, 0.25, 75)
+
 [node name="Game" type="Node3D"]
 script = ExtResource("1_dfyus")
 
-[node name="Player" parent="." instance=ExtResource("1_vumvf")]
-collision_layer = 2
+[node name="LightmapGi" type="LightmapGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+quality = 0
+bounces = 6
 
-[node name="Node3d" type="Node3D" parent="."]
-
-[node name="GroundPlane" type="MeshInstance3D" parent="Node3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
-mesh = SubResource("BoxMesh_5i32q")
-skeleton = NodePath("../../..")
-
-[node name="StaticBody3d" type="StaticBody3D" parent="Node3d/GroundPlane"]
-collision_layer = 2
-
-[node name="CollisionShape3d" type="CollisionShape3D" parent="Node3d/GroundPlane/StaticBody3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00040257, 0)
-shape = SubResource("BoxShape3D_h1aq6")
+[node name="LightmapProbe" type="LightmapProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687041, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1kmpe")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.982554, -0.00217307, -0.185966, 0.173323, -0.351861, 0.919866, -0.0674331, -0.93605, -0.345346, 0.0560982, 8.83786, 0.0537317)
+transform = Transform3D(0.883109, 0.34957, 0.312921, 0.109373, -0.801985, 0.587246, 0.456241, -0.484377, -0.746474, 0.0560982, 8.83786, 0.0537317)
+light_indirect_energy = 1.5
 shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="Player" parent="." instance=ExtResource("1_vumvf")]
+transform = Transform3D(0.999948, 0, 0, 0, 0.999948, 0, 0, 0, 0.999948, 0, 0, 0)
+collision_layer = 3
+collision_mask = 2
+
+[node name="Node3d" type="Node3D" parent="."]
+
+[node name="Ground" type="MeshInstance3D" parent="Node3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+mesh = SubResource("BoxMesh_5i32q")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody" type="StaticBody3D" parent="Node3d/Ground"]
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Node3d/Ground/StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00040257, 0)
+shape = SubResource("BoxShape3D_h1aq6")
+
+[node name="Playground" parent="." instance=ExtResource("3_geflk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.65344)

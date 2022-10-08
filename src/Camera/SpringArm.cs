@@ -23,11 +23,6 @@ public partial class SpringArm : SpringArm3D
         get { return this._lengthRange; }
         set
         {
-            //value.x = Mathf.Max(value.x, 0.0f);
-            //value.y = Mathf.Max(value.y, 0.0f);
-            //this._lengthRange.x = Mathf.Min(value.x, value.y);
-            //this._lengthRange.y = Mathf.Min(value.x, value.y);
-
             this._lengthRange.x = value.x;
             this._lengthRange.y = value.y;
 
@@ -54,6 +49,6 @@ public partial class SpringArm : SpringArm3D
     /// <inheritdoc />
     public override void _Ready()
     {
-        this.PositionStart = this.Transform.origin;
+        this.PositionStart = this.Position;
     }
 }

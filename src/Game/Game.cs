@@ -21,7 +21,6 @@ public partial class Game : Node
         if (@event.IsActionPressed("click") && Input.MouseMode is not Input.MouseModeEnum.Captured)
         {
             Input.MouseMode = Input.MouseModeEnum.Captured;
-            GD.Print("CLICK");
         }
 
         if (@event.IsActionPressed("toggle_mouse_captured"))

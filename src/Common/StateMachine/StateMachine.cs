@@ -22,6 +22,7 @@ public partial class StateMachine : Node
     /// Initializes a new instance of the <see cref="StateMachine"/> class.
     /// </summary>
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
     public StateMachine()
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     {
@@ -88,7 +89,7 @@ public partial class StateMachine : Node
         this._state!.Exit();
         this._state = targetState;
         this._state.Enter(msg);
-        this.EmitSignal(nameof(TransitionedEventHandler), targetStatePath);
+        //this.EmitSignal(nameof(TransitionedEventHandler), targetStatePath);
     }
 
     /// <summary>
@@ -115,7 +116,6 @@ public partial class StateMachine : Node
 
         this._state!.Enter();
     }
-
 
     /// <summary>
     /// Sets the is active.
