@@ -1,6 +1,6 @@
-﻿namespace Acruxx.Camera;
+﻿namespace Acruxx.Game.Camera;
 
-using Acruxx.Common.StateMachine;
+using Acruxx.Game.Common.StateMachine;
 
 /// <summary>
 /// The camera state.

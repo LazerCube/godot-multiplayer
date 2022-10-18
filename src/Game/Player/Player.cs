@@ -1,7 +1,7 @@
-﻿namespace Acruxx.Player;
+﻿namespace Acruxx.Game.Player;
 
-using Acruxx.Camera;
-using Acruxx.Common.StateMachine;
+using Acruxx.Game.Camera;
+using Acruxx.Game.Common.StateMachine;
 using Godot;
 
 /// <summary>

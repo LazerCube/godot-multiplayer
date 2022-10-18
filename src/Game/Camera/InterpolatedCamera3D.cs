@@ -1,4 +1,4 @@
-namespace Acruxx.Camera;
+namespace Acruxx.Game.Camera;
 
 using Godot;
 

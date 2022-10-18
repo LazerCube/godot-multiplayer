@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://7nd1si2penm6"]
+[gd_scene load_steps=20 format=3 uid="uid://wncpmqpndmj2"]
 
 [ext_resource type="PackedScene" uid="uid://dmohaboowxflx" path="res://assets/models/mannequin/mannequiny.glb" id="1_mdrau"]
-[ext_resource type="Script" path="res://src/Player/Mannequiny.cs" id="2_pprt4"]
+[ext_resource type="Script" path="res://src/Game/Player/Mannequiny.cs" id="2_pprt4"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wsm34"]
 animation = &"idle"

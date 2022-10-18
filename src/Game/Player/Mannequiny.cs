@@ -1,4 +1,4 @@
-﻿namespace Acruxx.Player;
+﻿namespace Acruxx.Game.Player;
 
 using Godot;
 

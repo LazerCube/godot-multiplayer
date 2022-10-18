@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://r244y5vu26hq"]
+[gd_scene load_steps=9 format=3 uid="uid://05e6ucjvdwro"]
 
-[ext_resource type="Script" path="res://src/Game/Game.cs" id="1_dfyus"]
-[ext_resource type="PackedScene" uid="uid://ce4flhuyms2iv" path="res://src/Player/Player.tscn" id="1_vumvf"]
-[ext_resource type="PackedScene" uid="uid://xqwt1w4wbeh4" path="res://src/Game/Playground.tscn" id="3_geflk"]
+[ext_resource type="Script" path="res://src/Game/Game/Game.cs" id="1_dfyus"]
+[ext_resource type="PackedScene" uid="uid://0r224gwx5pdw" path="res://src/Game/Player/Player.tscn" id="1_vumvf"]
+[ext_resource type="PackedScene" uid="uid://xqwt1w4wbeh4" path="res://src/Game/Game/Playground.tscn" id="3_geflk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rw880"]
 sky_top_color = Color(0.466667, 0.631373, 0.768627, 1)
@@ -19,6 +19,7 @@ reflected_light_source = 2
 tonemap_mode = 2
 tonemap_white = 2.0
 ssao_enabled = true
+sdfgi_energy = 0.75
 
 [sub_resource type="BoxMesh" id="BoxMesh_5i32q"]
 size = Vector3(75, 0.25, 75)

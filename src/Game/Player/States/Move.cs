@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Acruxx.Common.StateMachine;
+using Acruxx.Game.Common.StateMachine;
 using Godot;
 
-namespace Acruxx.Player.States;
+namespace Acruxx.Game.Player.States;
 
 /// <summary>
 /// The move state.

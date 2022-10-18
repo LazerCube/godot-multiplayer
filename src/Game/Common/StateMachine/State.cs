@@ -1,7 +1,7 @@
 ﻿using Godot;
 using System.Collections.Generic;
 
-namespace Acruxx.Common.StateMachine;
+namespace Acruxx.Game.Common.StateMachine;
 
 /// <summary>
 /// The state.

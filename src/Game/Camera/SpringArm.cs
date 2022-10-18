@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Godot;
 
-namespace Acruxx.Camera;
+namespace Acruxx.Game.Camera;
 
 /// <summary>
 /// The spring arm.

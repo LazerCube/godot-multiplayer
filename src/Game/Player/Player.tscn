@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://ce4flhuyms2iv"]
+[gd_scene load_steps=10 format=3 uid="uid://0r224gwx5pdw"]
 
-[ext_resource type="Script" path="res://src/Player/Player.cs" id="1_n6sgb"]
-[ext_resource type="PackedScene" uid="uid://6o81otuqiolx" path="res://src/Camera/CameraRig.tscn" id="2_dd878"]
-[ext_resource type="PackedScene" uid="uid://7nd1si2penm6" path="res://src/Player/Mannequiny.tscn" id="2_vimva"]
-[ext_resource type="Script" path="res://src/Common/StateMachine/StateMachine.cs" id="3_bg1o6"]
-[ext_resource type="Script" path="res://src/Player/States/Move.cs" id="4_c6e1e"]
-[ext_resource type="Script" path="res://src/Player/States/Idle.cs" id="5_om8fx"]
-[ext_resource type="Script" path="res://src/Player/States/Air.cs" id="6_vgqve"]
-[ext_resource type="Script" path="res://src/Player/States/Run.cs" id="7_7pmdr"]
+[ext_resource type="Script" path="res://src/Game/Player/Player.cs" id="1_n6sgb"]
+[ext_resource type="PackedScene" uid="uid://donrbi8ujscge" path="res://src/Game/Camera/CameraRig.tscn" id="2_dd878"]
+[ext_resource type="PackedScene" uid="uid://wncpmqpndmj2" path="res://src/Game/Player/Mannequiny.tscn" id="2_vimva"]
+[ext_resource type="Script" path="res://src/Game/Common/StateMachine/StateMachine.cs" id="3_bg1o6"]
+[ext_resource type="Script" path="res://src/Game/Player/States/Move.cs" id="4_c6e1e"]
+[ext_resource type="Script" path="res://src/Game/Player/States/Idle.cs" id="5_om8fx"]
+[ext_resource type="Script" path="res://src/Game/Player/States/Air.cs" id="6_vgqve"]
+[ext_resource type="Script" path="res://src/Game/Player/States/Run.cs" id="7_7pmdr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2cf18"]
 margin = 0.1

@@ -1,7 +1,7 @@
-﻿using Acruxx.Common.StateMachine;
+﻿using Acruxx.Game.Common.StateMachine;
 using Godot;
 
-namespace Acruxx.Player;
+namespace Acruxx.Game.Player;
 
 /// <summary>
 /// The player state.

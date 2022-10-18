@@ -1,7 +1,7 @@
-﻿using Acruxx.Common.StateMachine;
+﻿using Acruxx.Game.Common.StateMachine;
 using Godot;
 
-namespace Acruxx.Camera.States;
+namespace Acruxx.Game.Camera.States;
 
 /// <summary>
 /// The aim.

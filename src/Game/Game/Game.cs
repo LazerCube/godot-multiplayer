@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Acruxx;
+namespace Acruxx.Game;
 
 /// <summary>
 /// The game.

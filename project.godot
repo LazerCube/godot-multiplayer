@@ -21,8 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Acruxx"
-run/main_scene="res://src/Game/Game.tscn"
-config/features=PackedStringArray("4.0", "C#")
+run/main_scene="res://src/Game/Game/Game.tscn"
+config/features=PackedStringArray("4.0")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
@@ -34,7 +34,8 @@ window/size/extend_to_title=true
 
 [dotnet]
 
-project/assembly_name="Acruxx"
+project/assembly_name="Game"
+project/c#_project_directory="src/Game"
 
 [editor_plugins]
 

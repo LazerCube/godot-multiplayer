@@ -1,6 +1,6 @@
 ﻿using Godot;
 
-namespace Acruxx.Camera.States;
+namespace Acruxx.Game.Camera.States;
 
 /// <summary>
 /// The camera.
