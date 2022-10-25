@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://tvj80hyoj7al"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/Client/UI/Welcome/PreConnectComponent.cs" id="1_rioq5"]
+[ext_resource type="Shader" uid="uid://dsuparnsb0w6f" path="res://src/Acruxx/Game/Client/UI/Welcome/PreConnectComponent.tres" id="2_mljow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43hdw"]
+shader = ExtResource("2_mljow")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_rioq5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_43hdw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+offset_left = 661.0
+offset_top = 435.0
+offset_right = 738.0
+offset_bottom = 464.0
+
+[node name="ConnectButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 77.0
+offset_bottom = 29.0
+text = "Connect"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ConnectButton" to="." method="OnConnectButtonPressed"]

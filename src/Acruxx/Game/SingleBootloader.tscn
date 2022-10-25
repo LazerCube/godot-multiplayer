@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn3knrr1huqlb"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/SingleBootloader.cs" id="1_umwpl"]
+
+[node name="SingleBootloader" type="Node"]
+process_mode = 3
+script = ExtResource("1_umwpl")
+ClientLogicScenePath = "res://src/Acruxx/Game/Client/DefaultClientLogic.tscn"
+ServerLogicScenePath = "res://src/Acruxx/Game/Server/DefaultServerLogic.tscn"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true

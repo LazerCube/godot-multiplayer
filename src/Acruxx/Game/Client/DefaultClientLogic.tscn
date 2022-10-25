@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csukeuribofuf"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/Client/DefaultClientLogic.cs" id="1_omct6"]
+
+[node name="NetworkClientLogic" type="SubViewport"]
+script = ExtResource("1_omct6")

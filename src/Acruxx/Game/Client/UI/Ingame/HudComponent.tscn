@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://d25umupsjqeas"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/Client/UI/Ingame/HudComponent.cs" id="1_2hhg7"]
+[ext_resource type="Shader" path="res://src/Acruxx/Game/Client/UI/Ingame/HudShader.gdshader" id="1_i4e6j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4qke4"]
+shader = ExtResource("1_i4e6j")
+shader_parameter/center_enabled = true
+shader_parameter/center_radius = 0.002
+shader_parameter/color_0 = Plane(0, 1, 0, 1)
+shader_parameter/inverted = false
+shader_parameter/legs_enabled = true
+shader_parameter/len = 0.01
+shader_parameter/spacing = 0.01
+shader_parameter/spread = 1.0
+shader_parameter/width = 0.001
+
+[node name="Hud" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_2hhg7")
+
+[node name="HudControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HudControl"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HudControl/HBoxContainer2"]
+offset_left = 560.0
+offset_right = 840.0
+offset_bottom = 41.0
+
+[node name="build_message" type="Label" parent="HudControl/HBoxContainer2/CenterContainer"]
+offset_right = 280.0
+offset_bottom = 41.0
+theme_override_font_sizes/font_size = 30
+text = "IN DEVELOPMENT"
+
+[node name="ColorRect" type="ColorRect" parent="HudControl"]
+material = SubResource("ShaderMaterial_4qke4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

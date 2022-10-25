@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://tpxmo25kn3vd"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/Server/DefaultServerWorld.cs" id="1_5pr1i"]
+
+[node name="NetworkServerWorld" type="Node3D"]
+script = ExtResource("1_5pr1i")
+DeleteTimeForPlayer = 5.0

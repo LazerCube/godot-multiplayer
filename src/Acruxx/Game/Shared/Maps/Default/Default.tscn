@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnwhiwkp45dcu"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/Shared/Maps/Default/DefaultGameLevel.cs" id="1_1lgqm"]
+[ext_resource type="Script" path="res://src/Acruxx/Game/Shared/Maps/Default/DefaultSpawnPoint.cs" id="2_dy2n3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3ysd"]
+sky_top_color = Color(0.537255, 0.690196, 0.85098, 1)
+
+[sub_resource type="Sky" id="Sky_udrmt"]
+sky_material = SubResource("ProceduralSkyMaterial_q3ysd")
+
+[sub_resource type="Environment" id="Environment_s6eu2"]
+background_mode = 2
+background_energy_multiplier = 1.31
+sky = SubResource("Sky_udrmt")
+tonemap_mode = 2
+tonemap_white = 2.0
+ssao_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dmpen"]
+size = Vector2(25, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q7bhg"]
+size = Vector3(25, 1, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hkylf"]
+
+[node name="Default" type="Node3D"]
+script = ExtResource("1_1lgqm")
+EnvironmentPath = NodePath("WorldEnvironment")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s6eu2")
+
+[node name="Level" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Level"]
+mesh = SubResource("PlaneMesh_dmpen")
+
+[node name="StaticBody3d" type="StaticBody3D" parent="Level/Floor"]
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="Level/Floor/StaticBody3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_q7bhg")
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.889748, 0.261392, 0.374196, 0.0138706, -0.834897, 0.550231, 0.456241, -0.484377, -0.746474, 0.0560982, 5.13287, 0.0537317)
+light_indirect_energy = 1.5
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="SpawnPoint" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 1.5, 0)
+script = ExtResource("2_dy2n3")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="SpawnPoint"]
+shape = SubResource("BoxShape3D_hkylf")

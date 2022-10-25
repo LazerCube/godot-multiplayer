@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bap3rr2lx44dy"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/Shared/Player/DefaultPlayer.cs" id="1_mdw23"]
+[ext_resource type="Script" path="res://src/Acruxx/Dotplay/Game/CharacterCamera.cs" id="2_yasl1"]
+[ext_resource type="Script" path="res://src/Acruxx/Dotplay/Game/NetworkInput.cs" id="3_yd4xe"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5pjt2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ur3ko"]
+
+[node name="NetworkCharacter" type="CharacterBody3D"]
+script = ExtResource("1_mdw23")
+ColliderPath = NodePath("CollisionShape3d")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_5pjt2")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ur3ko")
+
+[node name="Camera3d" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39006, 2.49555)
+script = ExtResource("2_yasl1")
+
+[node name="Node3d" type="Node3D" parent="."]
+script = ExtResource("3_yd4xe")

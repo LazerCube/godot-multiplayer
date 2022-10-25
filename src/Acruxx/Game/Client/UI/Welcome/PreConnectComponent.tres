@@ -1,0 +1,28 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://dsuparnsb0w6f"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_crllr"]
+constant = Color(0.533037, 0.533037, 0.533037, 1)
+
+[resource]
+code = "shader_type canvas_item;
+
+
+
+void fragment() {
+// ColorConstant:3
+	vec4 n_out3p0 = vec4(0.533037, 0.533037, 0.533037, 1.000000);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out3p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-132.159, -47.2168)
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(420, 80)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorConstant_crllr")
+nodes/fragment/3/position = Vector2(160, 140)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0)

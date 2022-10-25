@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4b8ojvnsgh2d"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/BootloaderMultiView.cs" id="1_y4xcn"]
+
+[node name="BootloaderMultiView" type="Node"]
+process_mode = 3
+script = ExtResource("1_y4xcn")
+RootContainerPath = NodePath("VSplitContainer")
+ClientLogicScenePath = "res://src/Acruxx/Game/Client/DefaultClientLogic.tscn"
+ServerLogicScenePath = "res://src/Acruxx/Game/Server/DefaultServerLogic.tscn"
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Godot.NET.Sdk/4.0.0-beta2">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Game\Shared\Player\Components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LiteNetLib\LiteNetLib.csproj" />
+    <ProjectReference Include="..\PriorityQueue\PriorityQueue.csproj" />
+    <ProjectReference Include="..\RCON\RCON.csproj" />
+  </ItemGroup>
+</Project>

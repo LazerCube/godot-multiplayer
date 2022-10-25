@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://djxqrvidh8i50"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/Client/UI/Ingame/GameKeyRecord.cs" id="1_bja4y"]
+
+[node name="MovementControl" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_bja4y")
+
+[node name="MovementLabel" type="Label" parent="."]
+offset_top = 2.0
+offset_right = 647.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "Movement"
+
+[node name="MovementCurrentKey" type="Label" parent="."]
+offset_left = 651.0
+offset_top = 2.0
+offset_right = 1299.0
+offset_bottom = 28.0
+size_flags_horizontal = 3
+text = "W"
+
+[node name="ChangeKeyButton" type="Button" parent="."]
+offset_left = 1303.0
+offset_right = 1400.0
+offset_bottom = 31.0
+text = "Change key"

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3xlinck7h8f"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Game/Client/UI/Ingame/MenuComponent.cs" id="1_q7ocm"]
+[ext_resource type="FontFile" uid="uid://bo5wv2c2s0lm7" path="res://assets/fonts/montserrat-regular.tres" id="2_wlfvg"]
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource("1_q7ocm")
+DisconnectPath = NodePath("CenterContainer/VBoxContainer/DisconnectButton")
+SettingsPath = NodePath("CenterContainer/VBoxContainer/SettingsButton")
+ClosePath = NodePath("CenterContainer/VBoxContainer/CloseButton")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_custom_anchors = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+offset_left = 650.0
+offset_top = 402.0
+offset_right = 749.0
+offset_bottom = 497.0
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer"]
+offset_right = 99.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("2_wlfvg")
+text = "Settings"
+
+[node name="CloseButton" type="Button" parent="CenterContainer/VBoxContainer"]
+offset_top = 33.0
+offset_right = 99.0
+offset_bottom = 62.0
+text = "Close"
+
+[node name="DisconnectButton" type="Button" parent="CenterContainer/VBoxContainer"]
+offset_top = 66.0
+offset_right = 99.0
+offset_bottom = 95.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Disconnect"
