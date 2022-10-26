@@ -21,6 +21,7 @@ shape = SubResource("CapsuleShape3D_ur3ko")
 [node name="Camera3d" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39006, 2.49555)
 script = ExtResource("2_yasl1")
+TPSCameraRadius = 2.7
 
 [node name="Node3d" type="Node3D" parent="."]
 script = ExtResource("3_yd4xe")

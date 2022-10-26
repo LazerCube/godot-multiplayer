@@ -37,6 +37,13 @@ window/size/extend_to_title=true
 project/assembly_name="Acruxx"
 project/c#_project_directory="src/Acruxx"
 
+[editor]
+
+script/quality/screen_space_aa=0
+script/quality/use_taa=false
+script/quality/use_debanding=false
+script/quality/msaa_3d=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/interpolated_camera_3d/plugin.cfg")

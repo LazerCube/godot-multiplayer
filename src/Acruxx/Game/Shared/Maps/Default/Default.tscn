@@ -3,18 +3,17 @@
 [ext_resource type="Script" path="res://src/Acruxx/Game/Shared/Maps/Default/DefaultGameLevel.cs" id="1_1lgqm"]
 [ext_resource type="Script" path="res://src/Acruxx/Game/Shared/Maps/Default/DefaultSpawnPoint.cs" id="2_dy2n3"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q3ysd"]
-sky_top_color = Color(0.537255, 0.690196, 0.85098, 1)
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xrphr"]
+ground_color = Color(0.901961, 0.827451, 0.737255, 1)
 
 [sub_resource type="Sky" id="Sky_udrmt"]
-sky_material = SubResource("ProceduralSkyMaterial_q3ysd")
+sky_material = SubResource("PhysicalSkyMaterial_xrphr")
 
 [sub_resource type="Environment" id="Environment_s6eu2"]
 background_mode = 2
-background_energy_multiplier = 1.31
 sky = SubResource("Sky_udrmt")
-tonemap_mode = 2
-tonemap_white = 2.0
+tonemap_mode = 3
+tonemap_white = 5.0
 ssao_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dmpen"]
@@ -44,8 +43,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_q7bhg")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.889748, 0.261392, 0.374196, 0.0138706, -0.834897, 0.550231, 0.456241, -0.484377, -0.746474, 0.0560982, 5.13287, 0.0537317)
-light_indirect_energy = 1.5
+transform = Transform3D(0.99912, 0.0393436, 0.0145637, -3.86553e-05, -0.346282, 0.93813, 0.0419526, -0.937305, -0.345976, 0.0560982, 5.13287, 0.0537317)
+light_energy = 4.5
+light_angular_distance = 1.0
 shadow_enabled = true
 directional_shadow_blend_splits = true
 
