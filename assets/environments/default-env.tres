@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://b7qut6ext3adg"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xrphr"]
+rayleigh_color = Color(0.192157, 0.309804, 0.521569, 1)
+ground_color = Color(0.901961, 0.827451, 0.737255, 1)
+
+[sub_resource type="Sky" id="Sky_udrmt"]
+sky_material = SubResource("PhysicalSkyMaterial_xrphr")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_udrmt")
+ambient_light_source = 3
+tonemap_mode = 3
+tonemap_exposure = 2.0
+tonemap_white = 4.0
+ssao_enabled = true
+ssao_light_affect = 0.98
+sdfgi_use_occlusion = true
+adjustment_enabled = true

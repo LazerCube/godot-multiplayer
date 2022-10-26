@@ -10,7 +10,6 @@ public static class ClientSettings
     /// <summary>
     /// Possible resoltuions
     /// </summary>
-
     public static readonly string[] Resolutions = new string[] {
        "640x480", "1280x1024", "1280x960", "1280x800","1280x768","1280x720", "1920x1080", "2560x1440"
     };
@@ -18,8 +17,8 @@ public static class ClientSettings
     /// <summary>
     /// Possible shadow quality values
     /// </summary>
-
-    public static readonly Dictionary<string, int> ShadowQualities = new Dictionary<string, int> {
+    public static readonly Dictionary<string, int> ShadowQualities = new()
+    {
        {"Disabled", 0},
        {"UltraLow", 1024},
        {"Low", 2048},
@@ -30,7 +29,7 @@ public static class ClientSettings
     /// <summary>
     /// Possible window modes
     /// </summary>
-    public enum WindowModes
+    public enum WindowModes : long
     {
         /// <summary>
         /// Is windowed
@@ -56,6 +55,5 @@ public static class ClientSettings
     /// <summary>
     /// Contains all vars for the client instance
     /// </summary>
-
     public static VarsCollection Variables { get; set; } = new VarsCollection(new Vars());
 }

@@ -163,10 +163,10 @@ public partial class GameSettings : CanvasLayer, IChildComponent<GameLogic>
         this.InitResolutions();
 
         InitEnums<ClientSettings.WindowModes>(this._windowModeChanger!, "cl_window_mode");
-        //InitEnums<Viewport.MSAA>(this._msaaChanger!, "cl_draw_msaa");
-        //InitEnums<Viewport.ScreenSpaceAA>(this._aaChanger!, "cl_draw_aa");
-        //InitEnums<Viewport.DebugDrawEnum>(this._debugChanger!, "cl_draw_debug");
-        //InitEnums<RenderingServer.ShadowQuality>(this._shadowQuality!, "cl_draw_shadow");
+        InitEnums<Viewport.MSAA>(this._msaaChanger!, "cl_draw_msaa");
+        InitEnums<Viewport.ScreenSpaceAA>(this._aaChanger!, "cl_draw_aa");
+        InitEnums<Viewport.DebugDrawEnum>(this._debugChanger!, "cl_draw_debug");
+        InitEnums<RenderingServer.ShadowQuality>(this._shadowQuality!, "cl_draw_shadow");
 
         InitBoolean(this._glow!, "cl_draw_glow");
         InitBoolean(this._sdfgi!, "cl_draw_sdfgi");
@@ -230,7 +230,7 @@ public partial class GameSettings : CanvasLayer, IChildComponent<GameLogic>
     /// </summary>
     /// <param name="button">The button.</param>
     /// <param name="storeKey">The store key.</param>
-    private static void InitEnums<TEnum>(OptionButton button, string storeKey) where TEnum : struct
+    private static void InitEnums<TEnum>(OptionButton button, string storeKey) where TEnum : struct, Enum
     {
         var currentWindowMode = ClientSettings.Variables.GetValue(storeKey);
 
@@ -238,8 +238,19 @@ public partial class GameSettings : CanvasLayer, IChildComponent<GameLogic>
         int selectedId = 0;
         foreach (var item in Enum.GetValues(typeof(TEnum)))
         {
-            button.AddItem(item.ToString(), (int)item);
-            button.SetItemMetadata((int)item, item.ToString());
+            int itemValue;
+
+            try
+            {
+                itemValue = Convert.ToInt32((long)item);
+            }
+            catch (OverflowException)
+            {
+                return;
+            }
+
+            button.AddItem(item.ToString(), itemValue);
+            button.SetItemMetadata(itemValue, item.ToString()!);
 
             if (currentWindowMode == item.ToString())
             {

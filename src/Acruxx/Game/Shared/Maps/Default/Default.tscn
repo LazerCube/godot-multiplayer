@@ -2,19 +2,8 @@
 
 [ext_resource type="Script" path="res://src/Acruxx/Game/Shared/Maps/Default/DefaultGameLevel.cs" id="1_1lgqm"]
 [ext_resource type="Script" path="res://src/Acruxx/Game/Shared/Maps/Default/DefaultSpawnPoint.cs" id="2_dy2n3"]
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_xrphr"]
-ground_color = Color(0.901961, 0.827451, 0.737255, 1)
-
-[sub_resource type="Sky" id="Sky_udrmt"]
-sky_material = SubResource("PhysicalSkyMaterial_xrphr")
-
-[sub_resource type="Environment" id="Environment_s6eu2"]
-background_mode = 2
-sky = SubResource("Sky_udrmt")
-tonemap_mode = 3
-tonemap_white = 5.0
-ssao_enabled = true
+[ext_resource type="Environment" uid="uid://b7qut6ext3adg" path="res://assets/environments/default-env.tres" id="2_w4yol"]
+[ext_resource type="Material" uid="uid://d12h4bnp7mhvs" path="res://assets/materials/Red.material" id="3_1t4fl"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_dmpen"]
 size = Vector2(25, 25)
@@ -24,12 +13,14 @@ size = Vector3(25, 1, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hkylf"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_acywj"]
+
 [node name="Default" type="Node3D"]
 script = ExtResource("1_1lgqm")
 EnvironmentPath = NodePath("WorldEnvironment")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_s6eu2")
+environment = ExtResource("2_w4yol")
 
 [node name="Level" type="Node3D" parent="."]
 
@@ -43,10 +34,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_q7bhg")
 
 [node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.99912, 0.0393436, 0.0145637, -3.86553e-05, -0.346282, 0.93813, 0.0419526, -0.937305, -0.345976, 0.0560982, 5.13287, 0.0537317)
-light_energy = 4.5
-light_angular_distance = 1.0
+transform = Transform3D(-0.581906, 0.728487, 0.361514, -0.015529, -0.454399, 0.890663, 0.813108, 0.512668, 0.27573, -0.0897453, 5.13287, 0.0537317)
+light_energy = 2.0
+light_angular_distance = 0.5
 shadow_enabled = true
+shadow_bias = 0.05
 directional_shadow_blend_splits = true
 
 [node name="SpawnPoint" type="Area3D" parent="."]
@@ -55,3 +47,9 @@ script = ExtResource("2_dy2n3")
 
 [node name="CollisionShape3d" type="CollisionShape3D" parent="SpawnPoint"]
 shape = SubResource("BoxShape3D_hkylf")
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999144, 0.0393636, 0.0126615, -0.0122556, -0.0105363, 0.999868, 0.0394919, -0.999169, -0.0100448, -3.59275, 0.488223, 0.0537296)
+mesh = SubResource("BoxMesh_acywj")
+skeleton = NodePath("../DirectionalLight3d")
+surface_material_override/0 = ExtResource("3_1t4fl")

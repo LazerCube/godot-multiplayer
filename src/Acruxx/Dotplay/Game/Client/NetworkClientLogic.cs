@@ -23,13 +23,13 @@ public partial class NetworkClientLogic : GameLogic
        { "cl_sensitivity_y", "2.0"},
        { "cl_debug_server", "true"},
 
-       { "cl_fov", "70"},
+       { "cl_fov", "90"},
 
        { "cl_resolution", "640x480"},
-       { "cl_draw_shadow", "SoftLow"},
+       { "cl_draw_shadow", "SoftMedium"},
 
        { "cl_window_mode", nameof(ClientSettings.WindowModes.Windowed)},
-       { "cl_draw_msaa", nameof(MSAA.Msaa2x)},
+       { "cl_draw_msaa", nameof(MSAA.Msaa4x)},
        { "cl_draw_aa", nameof(ScreenSpaceAA.Disabled)},
        { "cl_draw_debug",  nameof(DebugDrawEnum.Disabled)},
 

@@ -5,27 +5,27 @@
 
 [node name="GameSettings" type="CanvasLayer"]
 script = ExtResource("1_58hji")
+_aaChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/AAChanger")
+_closeButtonPath = NodePath("RootContainer/VBoxContainer/CloseButton")
+_debandingPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer/debanding")
+_debugChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/DebugChanger")
+_fovPath = NodePath("RootContainer/VBoxContainer/TabContainer/Mouse/FovContainer/FovSpinBox")
+_glowPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer4/glow")
+_keyChangeDialogPath = NodePath("ConfirmationDialog")
+_keyContainerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Keyboard/ScrollContainer/KeyListContainer")
+_msaaChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/MsaaChanger")
+_occlusionPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer2/occlusion")
+_resChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/ResChanger")
+_sdfgiPlath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer5/sdfgi")
 _sensPathX = NodePath("RootContainer/VBoxContainer/TabContainer/Mouse/SensXContainer/SpinBoxSensX")
 _sensPathY = NodePath("RootContainer/VBoxContainer/TabContainer/Mouse/SensYContainer/SpinBoxSensY")
 _shadowQualityPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/ShadowQuality")
-_fovPath = NodePath("RootContainer/VBoxContainer/TabContainer/Mouse/FovContainer/FovSpinBox")
 _soundVolumePath = NodePath("RootContainer/VBoxContainer/TabContainer/Audio/HBoxContainer/HSlider")
-_keyContainerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Keyboard/ScrollContainer/KeyListContainer")
-_debandingPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer/debanding")
-_occlusionPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer2/occlusion")
-_resChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/ResChanger")
-_windowModeChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/WindowModeChanger")
-_keyChangeDialogPath = NodePath("ConfirmationDialog")
-_closeButtonPath = NodePath("RootContainer/VBoxContainer/CloseButton")
-_msaaChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/MsaaChanger")
-_debugChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/DebugChanger")
-_viewportScaleChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer6/ViewportScaleSlider")
-_aaChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/AAChanger")
 _ssaoPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer3/ssao")
 _ssilPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer7/ssil")
-_glowPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer4/glow")
-_sdfgiPlath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer5/sdfgi")
+_viewportScaleChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer6/ViewportScaleSlider")
 _vsyncPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/HBoxContainer8/vsync")
+_windowModeChangerPath = NodePath("RootContainer/VBoxContainer/TabContainer/Video/WindowModeChanger")
 
 [node name="RootContainer" type="AspectRatioContainer" parent="."]
 anchors_preset = -1
@@ -45,7 +45,7 @@ size_flags_vertical = 3
 
 [node name="TabContainer" type="TabContainer" parent="RootContainer/VBoxContainer"]
 offset_right = 720.0
-offset_bottom = 685.0
+offset_bottom = 687.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -61,7 +61,7 @@ size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="RootContainer/VBoxContainer/TabContainer/Keyboard"]
 offset_right = 720.0
-offset_bottom = 654.0
+offset_bottom = 658.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -160,31 +160,26 @@ offset_right = 712.0
 offset_bottom = 20.0
 
 [node name="MsaaChanger" type="OptionButton" parent="RootContainer/VBoxContainer/TabContainer/Video"]
-visible = false
 offset_top = 24.0
 offset_right = 712.0
 offset_bottom = 44.0
 
 [node name="DebugChanger" type="OptionButton" parent="RootContainer/VBoxContainer/TabContainer/Video"]
-visible = false
 offset_top = 48.0
 offset_right = 712.0
 offset_bottom = 68.0
 
 [node name="AAChanger" type="OptionButton" parent="RootContainer/VBoxContainer/TabContainer/Video"]
-visible = false
 offset_top = 72.0
 offset_right = 712.0
 offset_bottom = 92.0
 
 [node name="WindowModeChanger" type="OptionButton" parent="RootContainer/VBoxContainer/TabContainer/Video"]
-visible = false
 offset_top = 96.0
 offset_right = 712.0
 offset_bottom = 116.0
 
 [node name="ShadowQuality" type="OptionButton" parent="RootContainer/VBoxContainer/TabContainer/Video"]
-visible = false
 offset_top = 120.0
 offset_right = 712.0
 offset_bottom = 140.0
@@ -352,7 +347,7 @@ max_value = 1.0
 step = 0.05
 
 [node name="CloseButton" type="Button" parent="RootContainer/VBoxContainer"]
-offset_top = 689.0
+offset_top = 691.0
 offset_right = 720.0
 offset_bottom = 720.0
 text = "Close"
