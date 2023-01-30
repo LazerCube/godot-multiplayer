@@ -16,9 +16,6 @@ public partial class DefaultPlayer : NetworkCharacter
     [NetworkVar(NetworkSyncFrom.FromServer, NetworkSyncTo.ToPuppet)]
     public float AnimationMoveSpeed;
 
-    /// <summary>
-    /// Custom net vars
-    /// </summary>
     [NetworkVar(NetworkSyncFrom.FromServer, NetworkSyncTo.ToClient | NetworkSyncTo.ToPuppet)]
     public float HP;
 
@@ -63,6 +60,11 @@ public partial class DefaultPlayer : NetworkCharacter
 
         currentInterpolation.SetVar(this, "AnimationBlendPosition", aPos.Slerp(bPos, theta));
         currentInterpolation.SetVar(this, "AnimationMoveSpeed", Mathf.Lerp(aSpeedPos, bSpeedPos, theta));
+
+        var ahp = lastState.GetVar<float>(this, "HP");
+        var bhp = nextState.GetVar<float>(this, "HP");
+
+        currentInterpolation.SetVar(this, "HP", Mathf.Lerp(ahp, bhp, theta));
 
         return currentInterpolation;
     }

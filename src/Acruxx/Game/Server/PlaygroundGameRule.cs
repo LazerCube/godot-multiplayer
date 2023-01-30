@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Acruxx.Game.Shared.Player.Components;
 using Dotplay;
 using Dotplay.Game;
 
@@ -53,19 +54,19 @@ public class PlaygroundGameRule : GameRule
 
         Logger.LogDebug(this, "Player was joined to " + origin.ToString());
 
-        //this.AddComponentToServerPlayer<PlayerAnimationComponent>(player);
-        this.AddComponentToServerPlayer<CharacterCamera>(player);
         //this.AddComponentToServerPlayer<PlayerFootstepComponent>(player);
         this.AddComponentToServerPlayer<NetworkInput>(player);
+        this.AddComponentToServerPlayer<CharacterCamera>(player);
+        this.AddComponentToServerPlayer<PlayerAnimationComponent>(player);
 
-        //this.AddComponentToLocalPlayer<PlayerAnimationComponent>(player);
         this.AddComponentToLocalPlayer<NetworkInput>(player);
         this.AddComponentToLocalPlayer<CharacterCamera>(player);
+        this.AddComponentToLocalPlayer<PlayerAnimationComponent>(player);
         //this.AddComponentToLocalPlayer<PlayerFootstepComponent>(player);
         //this.AddComponentToLocalPlayer<FPSWeaponAnimator>(player);
 
         //this.AddComponentToPuppetPlayer<FPSWeaponAnimator>(player);
-        //this.AddComponentToPuppetPlayer<PlayerAnimationComponent>(player);
+        this.AddComponentToPuppetPlayer<PlayerAnimationComponent>(player);
         //this.AddComponentToPuppetPlayer<PlayerFootstepComponent>(player);
 
         player.DoTeleport(origin);

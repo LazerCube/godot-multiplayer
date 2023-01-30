@@ -40,7 +40,7 @@ public partial class CharacterCamera : Camera3D, IPlayerComponent
     /// The Camera Distance from the character in TPS Mode
     /// </summary>
     [Export]
-    public Vector3 TPSCameraOffset = new Vector3(0, 0.5f, 0);
+    public Vector3 TPSCameraOffset = new(0, 0.5f, 0);
 
     /// <summary>
     /// The Camera Radis
@@ -48,15 +48,15 @@ public partial class CharacterCamera : Camera3D, IPlayerComponent
     [Export]
     public float TPSCameraRadius = 1.7f;
 
-    internal float tempPitch = 0.0f;
+    internal float TempPitch = 0.0f;
 
-    internal float tempRotX = 0.0f;
+    internal float TempRotX = 0.0f;
 
-    internal float tempRotY = 0.0f;
+    internal float TempRotY = 0.0f;
 
-    internal float tempRotZ = 0.0f;
+    internal float TempRotZ = 0.0f;
 
-    internal float tempYaw = 0.0f;
+    internal float TempYaw = 0.0f;
 
     /// <summary>
     /// The base component of the child component
@@ -84,9 +84,9 @@ public partial class CharacterCamera : Camera3D, IPlayerComponent
 
         var rotation = this.GlobalTransform.basis.GetEuler();
 
-        this.tempRotX = rotation.x;
-        this.tempRotY = rotation.y;
-        this.tempRotZ = rotation.z;
+        this.TempRotX = rotation.x;
+        this.TempRotY = rotation.y;
+        this.TempRotZ = rotation.z;
 
         this.Current = this.IsEnabled;
         this.TopLevel = true;
@@ -128,9 +128,9 @@ public partial class CharacterCamera : Camera3D, IPlayerComponent
             var cam_pos = this.BaseComponent.GlobalTransform.origin + this.TPSCameraOffset;
             if (!this.IsServer())
             {
-                cam_pos.x += this.TPSCameraRadius * Mathf.Sin(Mathf.DegToRad(this.tempYaw)) * Mathf.Cos(Mathf.DegToRad(this.tempPitch));
-                cam_pos.y += this.TPSCameraRadius * Mathf.Sin(Mathf.DegToRad(this.tempPitch));
-                cam_pos.z += this.TPSCameraRadius * Mathf.Cos(Mathf.DegToRad(this.tempYaw)) * Mathf.Cos(Mathf.DegToRad(this.tempPitch));
+                cam_pos.x += this.TPSCameraRadius * Mathf.Sin(Mathf.DegToRad(this.TempYaw)) * Mathf.Cos(Mathf.DegToRad(this.TempPitch));
+                cam_pos.y += this.TPSCameraRadius * Mathf.Sin(Mathf.DegToRad(this.TempPitch));
+                cam_pos.z += this.TPSCameraRadius * Mathf.Cos(Mathf.DegToRad(this.TempYaw)) * Mathf.Cos(Mathf.DegToRad(this.TempPitch));
 
                 this.LookAtFromPosition(cam_pos, this.BaseComponent.GlobalTransform.origin + this.TPSCameraOffset, new Vector3(0, 1, 0));
             }
@@ -141,7 +141,7 @@ public partial class CharacterCamera : Camera3D, IPlayerComponent
 
             var target = this.BaseComponent.GlobalTransform.origin + this.FPSCameraOffset + Vector3.Up * this.BaseComponent.GetShapeHeight();
             transform.origin = target;
-            transform.basis = new Basis(new Vector3(this.tempRotX, this.tempRotY, 0));
+            transform.basis = new Basis(new Vector3(this.TempRotX, this.TempRotY, 0));
             this.GlobalTransform = transform;
         }
 
@@ -154,7 +154,6 @@ public partial class CharacterCamera : Camera3D, IPlayerComponent
     /// <summary>
     /// Get the view rotation of an local player
     /// </summary>
-    /// <returns></returns>
     public virtual Vector3 GetViewRotation()
     {
         return this.GlobalTransform.basis.GetEuler();
@@ -185,12 +184,12 @@ public partial class CharacterCamera : Camera3D, IPlayerComponent
                 if (Godot.Input.MouseMode == Godot.Input.MouseModeEnum.Captured)
                 {
                     var ev = @event as InputEventMouseMotion;
-                    this.tempRotX -= ev.Relative.y * (sensY / 100);
-                    this.tempRotX = Mathf.Clamp(this.tempRotX, Mathf.DegToRad(-90), Mathf.DegToRad(90));
-                    this.tempRotY -= ev.Relative.x * (sensX / 100);
+                    this.TempRotX -= ev.Relative.y * (sensY / 100);
+                    this.TempRotX = Mathf.Clamp(this.TempRotX, Mathf.DegToRad(-90), Mathf.DegToRad(90));
+                    this.TempRotY -= ev.Relative.x * (sensX / 100);
 
-                    this.tempYaw = (this.tempYaw - (ev.Relative.x * (sensX))) % 360;
-                    this.tempPitch = Mathf.Max(Mathf.Min(this.tempPitch + (ev.Relative.y * (sensY)), 85), -85);
+                    this.TempYaw = (this.TempYaw - (ev.Relative.x * (sensX))) % 360;
+                    this.TempPitch = Mathf.Max(Mathf.Min(this.TempPitch + (ev.Relative.y * (sensY)), 85), -85);
                 }
             }
 

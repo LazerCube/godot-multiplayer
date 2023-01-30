@@ -98,7 +98,7 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
     /// <summary>
     /// Return if the player is syncronized with server.
     /// </summary>
-    public bool IsSynchronized { get; set; } = false;
+    public bool IsSynchronized { get; set; }
 
     /// <inheritdoc />
     public int Latency { get; set; }
@@ -125,7 +125,7 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
     /// <summary>
     /// Gets the network sync vars.
     /// </summary>
-    public Dictionary<string, NetworkAttribute> NetworkSyncVars { get; private set; } = new Dictionary<string, NetworkAttribute>();
+    public Dictionary<string, NetworkAttribute> NetworkSyncVars { get; private set; } = new();
 
     /// <inheritdoc />
     public string PlayerName { get; set; } = string.Empty;
@@ -207,6 +207,7 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
     {
         base._PhysicsProcess(delta);
 
+        // Player is crouching or un-crouching.
         if (this.PreviousCrouchLevel != this.NetworkCrouchingLevel && this.Shape?.Shape != null)
         {
             var yPos = (this.ShapeHeight - this.NetworkCrouchingLevel) / 2;
@@ -242,13 +243,7 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
 
         if (this.IsLocal() && this.DebugMesh != null && this.DebugMeshLocal != null && this._detectCamera != null)
         {
-            var activated = ClientSettings.Variables.Get("cl_debug_server", false);
-            if (activated && this._detectCamera.Mode == CameraMode.FPS)
-            {
-                activated = false;
-            }
-
-            if (!activated)
+            if (!ClientSettings.Variables.Get("cl_debug_server", false))
             {
                 this.DebugMeshLocal.Visible = false;
                 this.DebugMesh.Visible = false;
@@ -258,8 +253,8 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
                 var state = this.IncomingLocalPlayerState;
                 if (!default(PlayerState).Equals(state))
                 {
-                    this.DebugMeshLocal.Visible = activated;
-                    this.DebugMesh.Visible = activated;
+                    this.DebugMeshLocal.Visible = true;
+                    this.DebugMesh.Visible = true;
 
                     this.DebugMesh.GlobalTransform = new Transform3D(
                         state.GetVar<Quaternion>(this, "NetworkRotation"),
@@ -311,8 +306,6 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
         this.GlobalTransform = new Transform3D(
             state.GetVar<Quaternion>(this, "NetworkRotation"),
             state.GetVar<Vector3>(this, "NetworkPosition"));
-
-        // this.MovingPlatformApplyVelocityOnLeave = MovingPlatformApplyVelocityOnLeaveEnum.Never;
 
         this.Velocity = state.GetVar<Vector3>(this, "NetworkVelocity");
         this.MovementProcessor.Velocity = state.GetVar<Vector3>(this, "NetworkVelocity");
@@ -486,12 +479,16 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
         var aPos = lastState.GetVar<Vector3>(this, "NetworkPosition");
         var bPos = nextState.GetVar<Vector3>(this, "NetworkPosition");
 
+        var aVelocity = lastState.GetVar<Vector3>(this, "NetworkVelocity");
+        var bVelocity = nextState.GetVar<Vector3>(this, "NetworkVelocity");
+
         var aCrouch = lastState.GetVar<float>(this, "NetworkCrouchingLevel");
         var bCrouch = nextState.GetVar<float>(this, "NetworkCrouchingLevel");
 
         var newState = this.ToNetworkState();
 
         newState.SetVar(this, "NetworkPosition", aPos.Lerp(bPos, theta));
+        newState.SetVar(this, "NetworkVelocity", aVelocity.Lerp(bVelocity, theta));
         newState.SetVar(this, "NetworkRotation", a.Slerp(b, theta));
         newState.SetVar(this, "NetworkCrouchingLevel", Mathf.Lerp(aCrouch, bCrouch, theta));
 
@@ -599,7 +596,6 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
             var input = this.Components.Get<NetworkInput>();
             if (input != null)
             {
-                // this.MovementProcessor.Velocity = this.Velocity;
                 this.MovementProcessor.SetServerVars(this.GameWorld.ServerVars);
                 this.MovementProcessor.Simulate(this, input.LastInput, delta);
             }
@@ -663,6 +659,8 @@ public partial class NetworkCharacter : CharacterBody3D, INetworkCharacter
             this.ApplyVars(nextState);
             this.ApplyBodyState(nextState);
         }
+
+        this.Move(this.Velocity);
     }
 
     /// <summary>

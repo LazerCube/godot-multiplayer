@@ -45,6 +45,7 @@ theme_override_font_sizes/font_size = 30
 text = "IN DEVELOPMENT"
 
 [node name="ColorRect" type="ColorRect" parent="HudControl"]
+visible = false
 material = SubResource("ShaderMaterial_4qke4")
 anchors_preset = 15
 anchor_right = 1.0

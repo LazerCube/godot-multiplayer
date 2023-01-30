@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdwkehxidnkor"]
 
-[ext_resource type="Script" path="res://src/Acruxx/Game/Game/Game.cs" id="1_dfyus"]
+[ext_resource type="Script" path="res://src/Acruxx/Game/Game/DefaultGame.cs" id="1_43tkn"]
 [ext_resource type="PackedScene" uid="uid://0r224gwx5pdw" path="res://src/Acruxx/Game/Player/Player.tscn" id="1_vumvf"]
 [ext_resource type="PackedScene" uid="uid://xqwt1w4wbeh4" path="res://src/Acruxx/Game/Game/Playground.tscn" id="3_geflk"]
 
@@ -28,7 +28,7 @@ size = Vector3(75, 0.25, 75)
 size = Vector3(75, 0.25, 75)
 
 [node name="Game" type="Node3D"]
-script = ExtResource("1_dfyus")
+script = ExtResource("1_43tkn")
 
 [node name="LightmapGi" type="LightmapGI" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

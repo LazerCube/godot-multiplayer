@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj7irb66o6jji"]
+
+[ext_resource type="Script" path="res://src/Acruxx/Dotplay/Game/CharacterCamera.cs" id="1_ckmk1"]
+
+[node name="NetworkCameraRig" type="Node3D"]
+
+[node name="Camera3d" type="Camera3D" parent="."]
+transform = Transform3D(-1, 4.23834e-08, -7.64617e-08, 0, 0.87462, 0.48481, 8.74228e-08, 0.48481, -0.87462, 0, 0.5, -0.5)
+script = ExtResource("1_ckmk1")
+TPSCameraRadius = 2.0
