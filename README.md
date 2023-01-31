@@ -1,12 +1,12 @@
-# Godot 4 Multiplayer (Authoritative Server) Demo + Single Player 3D Character Controller.
+# Godot 4 Multiplayer (Authoritative Server) Demo + Single Player 3D Character Controller
 
-This demo project showcases multiplayer gaming using Godot 4 and .NET 6, featuring an authoritative server and a single player character controller. The single player character controller is based on the [Open 3D mannequin](https://github.com/GDQuest/godot-3d-mannequin) by GDQuest updated to Godot 4 and .NET 6. The multiplayer demo is based on [Open Source Shooter](https://git.join-striked.com/striked-gaming/open-source-shooter) upgraded to Godot 4, .NET 6 and heavily modified.
+This project demonstrates a authoritative multiplayer setup and a single-player character controller using the latest version of Godot 4 and .NET 6. 
 
 I don't intend to continue work on this project since I've moved on to other things. But, I've published it in case someone else might find it useful.
 
 **Note**: This project was developed for Godot Beta 2.0 and may not be compatible with later versions of Godot 4.
 
-## Network Features
+## Multiplayer Features
 
 - Client-side prediction of player entities
 - Client-side interpolation of remote entities
@@ -21,6 +21,13 @@ I don't intend to continue work on this project since I've moved on to other thi
 - Remote de(activation) of player components
 - Server variable sharing between server and client (ServerVars)
 - RCON Implementation for Server Management
+
+## Acknowledgments
+
+This project is inspired from the following projects:
+
+- [Open Source Shooter](https://git.join-striked.com/striked-gaming/open-source-shooter)
+- [Open 3D mannequin](https://github.com/GDQuest/godot-3d-mannequin)
 
 ## Screenshots
 
