@@ -35,6 +35,6 @@ This project is inspired from the following projects:
 
 ![acruxx multiplayer example](.docs/assets/acruxx-multiplayer-demo.gif)
 
-### Player controller
+### Player Controller
 
 ![acruxx demo](.docs/assets/acruxx-player-demo.gif)
