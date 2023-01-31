@@ -28,17 +28,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HudControl"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="HudControl/HBoxContainer2"]
+layout_mode = 2
 offset_left = 560.0
 offset_right = 840.0
 offset_bottom = 41.0
 
 [node name="build_message" type="Label" parent="HudControl/HBoxContainer2/CenterContainer"]
+layout_mode = 2
 offset_right = 280.0
 offset_bottom = 41.0
 theme_override_font_sizes/font_size = 30
@@ -47,6 +50,7 @@ text = "IN DEVELOPMENT"
 [node name="ColorRect" type="ColorRect" parent="HudControl"]
 visible = false
 material = SubResource("ShaderMaterial_4qke4")
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
