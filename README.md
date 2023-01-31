@@ -2,7 +2,7 @@
 
 This demo project showcases multiplayer gaming using Godot 4 and .NET 6, featuring an authoritative server and a single player character controller. The single player character controller is based on the [Open 3D mannequin](https://github.com/GDQuest/godot-3d-mannequin) by GDQuest updated to Godot 4 and .NET 6. The multiplayer demo is based on [Open Source Shooter](https://git.join-striked.com/striked-gaming/open-source-shooter) upgraded to Godot 4, .NET 6 and heavily modified.
 
-I don't intend to continue this project as I'm working on other projects, but I've published it in case others are interested.
+I don't intend to continue work on this project since I've moved on to other things. But, I've published it in case someone else might find it useful.
 
 **Note**: This project was developed for Godot Beta 2.0 and may not be compatible with later versions of Godot 4.
 
