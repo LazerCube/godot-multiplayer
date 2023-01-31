@@ -4,7 +4,7 @@ This demo project showcases multiplayer gaming using Godot 4 and .NET 6, featuri
 
 I don't intend to continue this project as I'm working on other projects, but I've published it in case others are interested.
 
-**Note**: This project was created for Godot Beta 2.0 so it may not work with the latest Godot 4 builds. But it should be easy to update.
+**Note**: This project was developed for Godot Beta 2.0 and may not be compatible with later versions of Godot 4.
 
 ## Network Features
 
